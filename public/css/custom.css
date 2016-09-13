@@ -1,0 +1,13 @@
+html {
+    position: relative;
+    min-height: 100%;
+    color: #000;
+    font-family: "Times New Roman";
+}
+body {
+    /* Margin bottom by footer height */
+    background: none;
+}
+header {
+    margin: 10px 0;
+}
