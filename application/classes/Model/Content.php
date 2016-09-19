@@ -7,14 +7,9 @@ class Model_Content extends Kohana_Model
 {
     public function getBaseTemplate()
     {
-        /** @var $itemModel Model_Item */
-        $itemModel = Model::factory('Item');
-
         return View::factory('template')
             ->set('menu', $this->getMenu())
-            ->set('categories', $this->getCategory())
-            ->set('lastSeeItems', $itemModel->findLastSeeItems())
-            ;
+        ;
     }
     
     /**
@@ -31,8 +26,8 @@ class Model_Content extends Kohana_Model
                     ['p.title', 'name'],
                     'p.slug'
                 )
-                ->from(['menu', 'm'])
-                ->join(['pages', 'p'])
+                ->from(['pages__menu', 'm'])
+                ->join(['pages__pages', 'p'])
                 ->on('p.id', '=', 'm.page_id')
                 ->where('m.parent_id', '=', $mid)
                 ->and_where('m.status_id', '=', 1)
@@ -45,8 +40,8 @@ class Model_Content extends Kohana_Model
                     ['p.title', 'name'],
                     'p.slug'
                 )
-                ->from(['menu', 'm'])
-                ->join(['pages', 'p'])
+                ->from(['pages__menu', 'm'])
+                ->join(['pages__pages', 'p'])
                 ->on('p.id', '=', 'm.page_id')
                 ->where('m.id', '=', $id)
                 ->execute()
@@ -58,8 +53,8 @@ class Model_Content extends Kohana_Model
                     ['p.title', 'name'],
                     'p.slug'
                 )
-                ->from(['menu', 'm'])
-                ->join(['pages', 'p'])
+                ->from(['pages__menu', 'm'])
+                ->join(['pages__pages', 'p'])
                 ->on('p.id', '=', 'm.page_id')
                 ->where('m.parent_id', 'IS', null)
                 ->and_where('m.status_id', '=', 1)
@@ -108,8 +103,8 @@ class Model_Content extends Kohana_Model
     public function getPages()
     {
         return DB::select('p.*')
-            ->from(['pages', 'p'])
-            ->join(['menu', 'm'])
+            ->from(['pages__pages', 'p'])
+            ->join(['pages__menu', 'm'])
             ->on('m.page_id', '=', 'p.id')
             ->where('m.status_id', '=', 1)
             ->execute()
@@ -122,7 +117,7 @@ class Model_Content extends Kohana_Model
         $id = Arr::get($params, 'id', 0);
 
         return DB::select()
-            ->from('pages')
+            ->from('pages__pages')
             ->where('id', '=', $id)
             ->limit(1)
             ->execute()
@@ -138,7 +133,7 @@ class Model_Content extends Kohana_Model
     public function findPageBySlug($slug = '')
     {
         return DB::select()
-            ->from('pages')
+            ->from('pages__pages')
             ->where('slug', '=', $slug)
             ->limit(1)
             ->execute()

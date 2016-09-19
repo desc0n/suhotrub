@@ -18,10 +18,13 @@ return array
 			 *
 			 * Ports and sockets may be appended to the hostname.
 			 */
-			'hostname'   => 'localhost',
-			'database'   => 'box',
-			'username'   => 'srv70604_root',
-			'password'   => 'AaF5GnSk6u4D',
+            'hostname'   => 'localhost',
+            'database'   => 'enotevl_enot_bd',
+            //'database'   => 'enotevl_suhotrub_bd',
+            'username'   => 'enotevl_root',
+            //'username'   => 'enotevl_suhotrub_root',
+            'password'   => 'FoEOLFDlra',
+            //'password'   => '5QtiEHbDTR',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',

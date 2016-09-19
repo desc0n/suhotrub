@@ -120,6 +120,7 @@ Kohana::modules(array(
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	//'captcha'    => MODPATH.'captcha',
 	//'guestid'    => MODPATH.'guestid',
+	'content'    => MODPATH.'content',
 	));
 
 /**
@@ -134,33 +135,6 @@ Route::set('page', 'page/<slug>',[
 		'action'     => 'page',
 	])
 ;
-
-Route::set('catalogs', 'catalogs',[
-        'controller' => 'index',
-        'action'     => 'catalogs',
-    ])
-	->defaults(array(
-		'controller' => 'index',
-		'action'     => 'catalogs',
-	));
-
-Route::set('cart', 'cart',[
-        'controller' => 'index',
-        'action'     => 'cart',
-    ])
-	->defaults(array(
-		'controller' => 'index',
-		'action'     => 'cart',
-	));
-
-Route::set('reviews', 'reviews',[
-        'controller' => 'index',
-        'action'     => 'reviews',
-    ])
-	->defaults(array(
-		'controller' => 'index',
-		'action'     => 'reviews',
-	));
 
 Route::set('default', '(<controller>(/<action>(/<id>)))',array('id' =>'[0-9a-z_]+'))
 	->defaults(array(

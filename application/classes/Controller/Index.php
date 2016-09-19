@@ -1,33 +1,20 @@
 <?php defined('SYSPATH') or die('No direct script access.');
 
-class Controller_Index extends Controller_Base
+class Controller_Index extends Controller
 {
 	public function action_index()
 	{
         /** @var $contentModel Model_Content */
         $contentModel = Model::factory('Content');
 
-        /** @var $itemModel Model_Item */
-        $itemModel = Model::factory('Item');
-
         View::set_global('title', 'Главная');
         View::set_global('rootPage', 'main');
 
 		$template = $contentModel->getBaseTemplate();
         
-        $page = Arr::get($_GET, 'page', 1);
-
-        $items = $itemModel->getItem();
-        
-        $market_content = View::factory('market_content')
-            ->set('items', $items)
-            ->set('page', $page)
-        ;
-
-		$template->content = View::factory('index')
-            ->set('market_content', $market_content)
-            ->set('itemsCount', count($items))
-            ->set('page', $page)
+		$template->content = View::factory('page')
+            ->set('pageData', $contentModel->findPageBySlug('main'))
+            ->set('get', $this->request->query())
         ;
 
 		$this->response->body($template);
@@ -64,7 +51,7 @@ class Controller_Index extends Controller_Base
         
 		$template->content = View::factory('page')
 			->set('pageData', $contentModel->findPageBySlug($slug))
-			->set('get', $_GET)
+			->set('get', $this->request->query())
         ;
         
 		$this->response->body($template);

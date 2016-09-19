@@ -19,27 +19,7 @@
                 </p>
 
             </div>
-            <div class="span3" id="footerArea2">
-
-                <h3>Recent Blog Posts</h3>
-                <p>
-                    <a href="#" title="">Lorem Ipsum is simply dummy text</a><br />
-                    <span style="text-transform:none;">2 hours ago</span>
-                </p>
-                <p>
-                    <a href="#" title="">Duis mollis, est non commodo luctus</a><br />
-                    <span style="text-transform:none;">5 hours ago</span>
-                </p>
-                <p>
-                    <a href="#" title="">Maecenas sed diam eget risus varius</a><br />
-                    <span style="text-transform:none;">19 hours ago</span>
-                </p>
-                <p>
-                    <a href="#" title="">VIEW ALL POSTS</a>
-                </p>
-
-            </div>
-            <div class="span3" id="footerArea3">
+            <div class="span6" id="footerArea3">
 
                 <h3>Sample Content</h3>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s.
