@@ -20,11 +20,9 @@ return array
 			 */
             'hostname'   => 'localhost',
             'database'   => 'enotevl_enot_bd',
-            //'database'   => 'enotevl_suhotrub_bd',
             'username'   => 'enotevl_root',
-            //'username'   => 'enotevl_suhotrub_root',
             'password'   => 'FoEOLFDlra',
-            //'password'   => '5QtiEHbDTR',
+            //'password'   => 'tAxa4iTDz5',
 			'persistent' => FALSE,
 		),
 		'table_prefix' => '',

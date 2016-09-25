@@ -3,8 +3,8 @@
         <div class="span12">
 
             <div id="divLogo" class="pull-left">
-                <a href="index.html" id="divSiteTitle">Your Name</a><br />
-                <a href="index.html" id="divTagLine">Your Tag Line Here</a>
+                <a href="/" id="divSiteTitle">Your Name</a><br />
+                <a href="/" id="divTagLine">Your Tag Line Here</a>
             </div>
 
             <div id="divMenuRight" class="pull-right">

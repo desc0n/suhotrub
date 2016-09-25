@@ -13,14 +13,14 @@ class Model_Content extends Kohana_Model
     }
     
     /**
-     * @param null|int $mid
+     * @param null|int $parentId
      * @param null|int $id
      * 
      * @return array
      */
-    public function getMenu($mid = null, $id = null)
+    public function getMenu($parentId = null, $id = null)
     {
-        if ($mid !== null && $id === null) {
+        if ($parentId !== null && $id === null) {
             return DB::select(
                     'm.*' , 
                     ['p.title', 'name'],
@@ -29,7 +29,7 @@ class Model_Content extends Kohana_Model
                 ->from(['pages__menu', 'm'])
                 ->join(['pages__pages', 'p'])
                 ->on('p.id', '=', 'm.page_id')
-                ->where('m.parent_id', '=', $mid)
+                ->where('m.parent_id', '=', $parentId)
                 ->and_where('m.status_id', '=', 1)
                 ->execute()
                 ->as_array()
@@ -135,6 +135,24 @@ class Model_Content extends Kohana_Model
         return DB::select()
             ->from('pages__pages')
             ->where('slug', '=', $slug)
+            ->limit(1)
+            ->execute()
+            ->current()
+        ;
+    }
+
+    /**
+     * @param string $slug
+     *
+     * @return false|array
+     */
+    public function findMenuByPageSlug($slug = '')
+    {
+        return DB::select('p.*')
+            ->from(['pages__pages', 'p'])
+            ->join(['pages__menu', 'm'])
+            ->on('p.id', '=', 'm.page_id')
+            ->where('p.slug', '=', $slug)
             ->limit(1)
             ->execute()
             ->current()

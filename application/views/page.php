@@ -1,8 +1,6 @@
 <div class="contentArea">
     <div class="divPanel notop page-content">
-        <div class="breadcrumbs">
-            <?=Content::breadcrumbs();?>
-        </div>
+        <?=Content::breadcrumbs(Arr::get($pageData, 'slug'));?>
         <div class="row-fluid">
             <!--Edit Sidebar Content here-->
             <div class="span3">
