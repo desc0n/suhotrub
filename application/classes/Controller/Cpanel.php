@@ -375,6 +375,7 @@ class Controller_Cpanel extends Controller {
 		if (Auth::instance()->logged_in('admin')){
             if (isset($_POST['redactpage'])) {
                 $adminModel->setPage($this->request->post());
+
                 HTTP::redirect($this->request->referrer());
             }
 

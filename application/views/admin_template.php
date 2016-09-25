@@ -19,7 +19,7 @@
 	<script src="/public/js/bootstrap.js"></script>
 	<script src="/public/js/admin.js"></script>
 	<script src="/public/js/bootstrap3-typeahead.min.js"></script>
-	<script src="/public/js/ckeditor/ckeditor.js"></script>
+	<script src="//cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-default" role="navigation">
@@ -115,31 +115,16 @@
 		<div class="row">
 			<?if(Auth::instance()->logged_in('admin')){?>
 				<div class="col-xs-4 col-sm-4 col-md-3 sidebar admin-menu">
-<!--					<div class="row">-->
-<!--						<a class="btn btn-default admin-main-page-link" href="/cpanel/add_category">-->
-<!--							Редактировать категории-->
-<!--						</a>-->
-<!--					</div>-->
-					<div class="row">
-						<a class="btn btn-primary admin-main-page-link" href="/cpanel/add_item">
-							Редактировать товары
-						</a>
-					</div>
 					<div class="row">
 						<a class="btn btn-success admin-main-page-link" href="/cpanel/redact_page">
 							Редактировать страницы
 						</a>
 					</div>
-<!--					<div class="row">-->
-<!--						<a class="btn btn-danger admin-main-page-link" href="/cpanel/reviews_moderation">-->
-<!--							Модерация отзывов-->
-<!--						</a>-->
-<!--					</div>-->
-<!--					<div class="row">-->
-<!--						<a class="btn btn-warning admin-main-page-link" href="/cpanel/redact_main_page">-->
-<!--							Редактирование главной страницы-->
-<!--						</a>-->
-<!--					</div>-->
+					<div class="row">
+						<a class="btn btn-danger admin-main-page-link" href="/cpanel/redact_contact">
+							Редактировать контакты
+						</a>
+					</div>
 				</div>
 			<?}?>
 			<div class="col-xs-8 col-sm-8 col-md-9 main">

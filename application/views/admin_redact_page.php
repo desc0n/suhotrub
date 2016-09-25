@@ -24,8 +24,14 @@
 		</p>
         <p>
 			<div class="form-group span12">
-				<label for="redact_content_text">Текст страницы</label>
-				<textarea id="redact_content_text" name="text" class="ckeditor"><?=Arr::get($pageData, 'content', '');?></textarea>
+				<label for="redact_content_text">Основная колонка страницы</label>
+				<textarea id="redact_content_text" name="main_content" class="ckeditor"><?=Arr::get($pageData, 'main_content', '');?></textarea>
+			</div>
+		</p>
+        <p>
+			<div class="form-group span12">
+				<label for="redact_content_text">Левая колонка страницы</label>
+				<textarea id="redact_content_text" name="secondary_content" class="ckeditor"><?=Arr::get($pageData, 'secondary_content', '');?></textarea>
 			</div>
 		</p>
 		<p>
