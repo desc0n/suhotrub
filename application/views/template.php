@@ -54,7 +54,7 @@
     <div class="transparent-bg" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%;z-index: -1;zoom: 1;"></div>
     <?=View::factory('header')->set('menu', $menu)->set('rootPage', $rootPage);?>
     <?=$content;?>
-    <?=View::factory('footer');?>
+    <?=View::factory('footer')->set('contacts', $contacts);?>
 </div>
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

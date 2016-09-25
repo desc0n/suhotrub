@@ -9,6 +9,7 @@ class Model_Content extends Kohana_Model
     {
         return View::factory('template')
             ->set('menu', $this->getMenu())
+            ->set('contacts', $this->findAllContacts())
         ;
     }
     
@@ -156,6 +157,18 @@ class Model_Content extends Kohana_Model
             ->limit(1)
             ->execute()
             ->current()
+        ;
+    }
+
+    /**
+     * @return array
+     */
+    public function findAllContacts()
+    {
+        return DB::select()
+            ->from('contacts__contacts')
+            ->execute()
+            ->as_array('name', 'value')
         ;
     }
 }
