@@ -809,5 +809,40 @@ class Model_Admin extends Kohana_Model
             ->param(':item_id', Arr::get($params, 'addhit'))
             ->execute();
     }
+
+    public function setContacts($data)
+    {
+        DB::update('contacts__contacts')
+            ->set([
+                'value' => $data['phone'],
+            ])
+            ->where('name', '=', 'phone')
+            ->execute()
+        ;
+
+        DB::update('contacts__contacts')
+            ->set([
+                'value' => $data['email'],
+            ])
+            ->where('name', '=', 'email')
+            ->execute()
+        ;
+
+        DB::update('contacts__contacts')
+            ->set([
+                'value' => $data['address'],
+            ])
+            ->where('name', '=', 'address')
+            ->execute()
+        ;
+
+        DB::update('contacts__contacts')
+            ->set([
+                'value' => $data['about'],
+            ])
+            ->where('name', '=', 'about')
+            ->execute()
+        ;
+    }
 }
 ?>

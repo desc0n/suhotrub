@@ -121,7 +121,7 @@
 						</a>
 					</div>
 					<div class="row">
-						<a class="btn btn-danger admin-main-page-link" href="/cpanel/redact_contact">
+						<a class="btn btn-danger admin-main-page-link" href="/cpanel/redact_contacts">
 							Редактировать контакты
 						</a>
 					</div>

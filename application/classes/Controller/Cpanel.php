@@ -388,4 +388,30 @@ class Controller_Cpanel extends Controller {
 
 		$this->response->body($template->set('admin_content', $admin_content));
 	}
+
+	public function action_redact_contacts()
+	{
+        /** @var $adminModel Model_Admin */
+        $adminModel = Model::factory('Admin');
+
+		/** @var $contentModel Model_Content */
+		$contentModel = Model::factory('Content');
+
+		$template = View::factory("admin_template");
+		$admin_content = '';
+
+		if (Auth::instance()->logged_in('admin')){
+            if (isset($_POST['redactcontacts'])) {
+                $adminModel->setContacts($this->request->post());
+
+                HTTP::redirect($this->request->referrer());
+            }
+
+            $admin_content = View::factory('admin_redact_contacts')
+                ->set('contacts', $contentModel->findAllContacts())
+            ;
+		}
+
+		$this->response->body($template->set('admin_content', $admin_content));
+	}
 }
